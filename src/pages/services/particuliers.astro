@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedServices from '../../components/RelatedServices.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const features = [
+  {
+    title: 'Nettoyage complet',
+    description: 'Nettoyage intérieur et extérieur des vitres, encadrements et rebords',
+    icon: '🧼'
+  },
+  {
+    title: 'Sur mesure',
+    description: 'Service adapté à vos besoins spécifiques et à votre emploi du temps',
+    icon: '📅'
+  },
+  {
+    title: 'Équipement professionnel',
+    description: "Utilisation de matériel et produits professionnels respectueux de l'environnement",
+    icon: '🧰'
+  }
+];
+
+const testimonials = [
+  {
+    name: "Marie D.",
+    location: "Wattrelos",
+    text: "Un service impeccable ! Les vitres n'ont jamais été aussi propres. Je recommande vivement.",
+    rating: 5
+  },
+  {
+    name: "Pierre L.",
+    location: "Roubaix",
+    text: "Professionnalisme et efficacité au rendez-vous. Très satisfait du résultat.",
+    rating: 5
+  }
+];
+---
+
+<Layout
+  title="Service de Lavage de Vitres pour Particuliers à Wattrelos | Vitres Wattrelos"
+  description="Service professionnel de nettoyage de vitres pour particuliers à Wattrelos. Intervention sur mesure, devis gratuit. Expert en nettoyage de vitres résidentiel."
+>
+  <div class="bg-gray-50 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900">Service de Nettoyage de Vitres pour Particuliers</h1>
+        <p class="mt-4 text-xl text-gray-600">Une solution professionnelle pour des vitres impeccables</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        {features.map(({ title, description, icon }) => (
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="text-3xl mb-4">{icon}</div>
+            <h3 class="text-xl font-semibold mb-2">{title}</h3>
+            <p class="text-gray-600">{description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="bg-white p-8 rounded-lg shadow-md mb-12">
+        <h2 class="text-2xl font-bold mb-6">Notre Expertise en Nettoyage de Vitres Résidentiel</h2>
+        
+        <div class="prose max-w-none text-gray-600">
+          <p class="mb-4">
+            Chez Vitres Wattrelos, nous comprenons l'importance d'avoir des vitres parfaitement propres pour profiter pleinement de la lumière naturelle et maintenir l'esthétique de votre habitation. Notre service de nettoyage de vitres pour particuliers à Wattrelos et ses environs est conçu pour répondre aux exigences les plus élevées en matière de propreté et de transparence.
+          </p>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Une Approche Professionnelle du Nettoyage</h3>
+          <p class="mb-4">
+            Notre équipe de professionnels qualifiés utilise des techniques éprouvées et un équipement de pointe pour garantir un résultat impeccable. Nous prenons en charge tous types de vitrage : fenêtres classiques, baies vitrées, velux, vérandas, garde-corps en verre, etc. Chaque intervention est adaptée aux spécificités de vos installations pour un nettoyage optimal et sécurisé.
+          </p>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Produits et Méthodes</h3>
+          <p class="mb-4">
+            Nous utilisons exclusivement des produits professionnels respectueux de l'environnement et adaptés à tous types de surfaces vitrées. Notre méthode de nettoyage combine :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Un premier passage pour décoller les saletés tenaces</li>
+            <li>Un nettoyage approfondi avec des produits spécialisés</li>
+            <li>Un rinçage minutieux pour éliminer toute trace</li>
+            <li>Une finition professionnelle pour une transparence parfaite</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Services Complémentaires</h3>
+          <p class="mb-4">
+            En plus du nettoyage des vitres, nous proposons également :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Nettoyage des encadrements et joints</li>
+            <li>Entretien des volets et stores</li>
+            <li>Nettoyage des vitres difficiles d'accès</li>
+            <li>Traitement anti-calcaire</li>
+            <li>Nettoyage des moustiquaires</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Fréquence d'Intervention</h3>
+          <p class="mb-4">
+            Nous nous adaptons à vos besoins avec différentes formules :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Intervention ponctuelle</li>
+            <li>Contrat d'entretien trimestriel</li>
+            <li>Contrat d'entretien semestriel</li>
+            <li>Contrat d'entretien annuel</li>
+          </ul>
+
+          <p class="mb-4">
+            Pour les <a href="/services/coproprietes" class="text-primary hover:underline">copropriétés</a> et les <a href="/services/professionnels" class="text-primary hover:underline">professionnels</a>, nous proposons également des services adaptés à vos besoins spécifiques.
+          </p>
+        </div>
+      </div>
+
+      <!-- Témoignages -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-center mb-8">Ce que disent nos clients</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          {testimonials.map(({ name, location, text, rating }) => (
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <div class="flex items-center mb-4">
+                {Array.from({ length: rating }).map(() => (
+                  <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p class="text-gray-600 mb-4">"{text}"</p>
+              <div class="text-sm text-gray-500">
+                <span class="font-semibold">{name}</span> - {location}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <CTASection />
+    </div>
+  </div>
+
+  <RelatedServices currentService="particuliers" />
+</Layout>

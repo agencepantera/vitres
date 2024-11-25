@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const features = [
+  {
+    title: 'Service régulier',
+    description: 'Contrats d\'entretien adaptés à vos besoins et votre budget',
+    icon: '📅'
+  },
+  {
+    title: 'Flexibilité',
+    description: 'Intervention en dehors de vos heures d\'ouverture',
+    icon: '⏰'
+  },
+  {
+    title: 'Équipement spécialisé',
+    description: 'Matériel professionnel pour tous types de surfaces vitrées',
+    icon: '🛠️'
+  }
+];
+---
+
+<Layout
+  title="Nettoyage de Vitres pour Professionnels à Wattrelos | Vitres Wattrelos"
+  description="Service professionnel de lavage de vitres pour entreprises et commerces à Wattrelos. Contrats d'entretien sur mesure, intervention flexible. Expert en nettoyage de vitres professionnel."
+>
+  <div class="bg-gray-50 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900">Service de Nettoyage de Vitres pour Professionnels à Wattrelos</h1>
+        <p class="mt-4 text-xl text-gray-600">Solutions adaptées aux entreprises, commerces et locaux professionnels</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        {features.map(({ title, description, icon }) => (
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="text-3xl mb-4">{icon}</div>
+            <h3 class="text-xl font-semibold mb-2">{title}</h3>
+            <p class="text-gray-600">{description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="bg-white p-8 rounded-lg shadow-md mb-12">
+        <h2 class="text-2xl font-bold mb-6">Notre Expertise en Nettoyage de Vitres Professionnel</h2>
+        
+        <div class="prose max-w-none text-gray-600">
+          <p class="mb-4">
+            À Wattrelos et dans toute la métropole lilloise, notre entreprise de nettoyage de vitres propose des services professionnels adaptés aux besoins spécifiques des entreprises. Nous comprenons l'importance d'une image impeccable pour votre activité professionnelle, c'est pourquoi nous mettons notre expertise à votre service pour garantir des surfaces vitrées parfaitement entretenues.
+          </p>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Solutions pour Commerces et Boutiques</h3>
+          <p class="mb-4">
+            Pour les commerces et boutiques, nous proposons :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Nettoyage régulier des vitrines commerciales</li>
+            <li>Entretien des portes vitrées et entrées</li>
+            <li>Nettoyage des miroirs et surfaces réfléchissantes</li>
+            <li>Intervention en dehors des heures d'ouverture</li>
+            <li>Contrats d'entretien personnalisés</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Services pour Bureaux et Locaux Professionnels</h3>
+          <p class="mb-4">
+            Nos prestations pour les espaces de travail comprennent :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Nettoyage des fenêtres de bureaux</li>
+            <li>Entretien des cloisons vitrées</li>
+            <li>Nettoyage des baies vitrées</li>
+            <li>Traitement des surfaces vitrées spéciales</li>
+            <li>Planning d'intervention adapté à votre activité</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Équipements et Méthodes Professionnels</h3>
+          <p class="mb-4">
+            Notre expertise technique s'appuie sur :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Matériel professionnel de dernière génération</li>
+            <li>Produits écologiques certifiés</li>
+            <li>Techniques adaptées aux grandes hauteurs</li>
+            <li>Personnel formé et qualifié</li>
+            <li>Respect des normes de sécurité</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Avantages de Notre Service Professionnel</h3>
+          <p class="mb-4">
+            En choisissant notre service, vous bénéficiez de :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Devis gratuit et personnalisé</li>
+            <li>Intervention rapide et efficace</li>
+            <li>Flexibilité des horaires d'intervention</li>
+            <li>Tarifs compétitifs et transparents</li>
+            <li>Assurance professionnelle complète</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Secteurs d'Intervention</h3>
+          <p class="mb-4">
+            Nous intervenons dans tous les secteurs d'activité :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Commerces et boutiques</li>
+            <li>Bureaux et espaces de travail</li>
+            <li>Restaurants et hôtels</li>
+            <li>Centres commerciaux</li>
+            <li>Bâtiments industriels</li>
+            <li>Établissements de santé</li>
+            <li>Écoles et établissements d'enseignement</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 p-8 rounded-lg shadow-md text-center">
+        <h2 class="text-2xl font-bold mb-4">Besoin d'un Service Professionnel de Nettoyage de Vitres ?</h2>
+        <p class="text-gray-600 mb-6">Contactez-nous pour un devis personnalisé adapté à vos besoins</p>
+        <div class="flex justify-center gap-4">
+          <a
+            href="/contact"
+            class="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+          >
+            Demander un devis gratuit
+          </a>
+          <a
+            href="tel:+33320000000"
+            class="inline-block bg-white text-primary font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            Nous appeler
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

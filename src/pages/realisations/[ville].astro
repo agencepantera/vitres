@@ -1,0 +1,184 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTASection from '../../components/CTASection.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+
+export function getStaticPaths() {
+  const villes = [
+    {
+      ville: 'roubaix',
+      title: 'Lavage de Vitres à Roubaix',
+      description: 'Découvrez nos réalisations de nettoyage de vitres à Roubaix. Avant/Après, témoignages clients et expertise locale.',
+      realisations: [
+        {
+          type: 'Commerce',
+          quartier: 'Centre-ville',
+          description: 'Nettoyage complet des vitrines d\'une boutique de prêt-à-porter. Élimination des traces tenaces et du calcaire incrustés grâce à nos produits professionnels.',
+          defi: 'Vitres exposées à la pollution urbaine avec traces tenaces et calcaire incrustés',
+          solution: 'Traitement anti-calcaire professionnel et nettoyage haute précision avec produits écologiques',
+          beforeAfter: {
+            title: 'Vitrine Commerciale',
+            description: 'Transformation complète de la vitrine avec élimination des traces de calcaire et pollution',
+            beforeImage: '/images/realisations/roubaix/vitrine-before.jpg',
+            afterImage: '/images/realisations/roubaix/vitrine-after.jpg',
+            alt: 'Nettoyage vitrine Roubaix'
+          }
+        },
+        {
+          type: 'Véranda',
+          quartier: 'Le Pile',
+          description: 'Nettoyage complet d\'une véranda avec verrières et fenêtres panoramiques. Intervention minutieuse sur toutes les surfaces vitrées.',
+          defi: 'Verrières en hauteur avec accès difficile et accumulation importante de poussière',
+          solution: 'Utilisation de perches télescopiques professionnelles et produits spécialisés pour verrières',
+          beforeAfter: {
+            title: 'Véranda Résidentielle',
+            description: 'Restauration de la transparence des verrières et nettoyage des vitres panoramiques',
+            beforeImage: '/images/realisations/roubaix/veranda-before.jpg',
+            afterImage: '/images/realisations/roubaix/veranda-after.jpg',
+            alt: 'Nettoyage véranda Roubaix'
+          }
+        }
+      ],
+      specificites: [
+        "Vitrines commerciales exposées à la pollution urbaine",
+        "Vérandas et grandes baies vitrées résidentielles",
+        "Vitres anciennes nécessitant un traitement délicat"
+      ]
+    },
+    {
+      ville: 'tourcoing',
+      title: 'Lavage de Vitres à Tourcoing',
+      description: 'Découvrez nos réalisations de nettoyage de vitres à Tourcoing. Avant/Après, témoignages clients et expertise locale.',
+      realisations: [
+        {
+          type: 'Immeuble de Bureaux',
+          quartier: 'Centre-ville',
+          description: 'Nettoyage des baies vitrées et fenêtres d\'un immeuble de bureaux. Intervention sur toutes les surfaces vitrées intérieures et extérieures.',
+          defi: 'Grande surface vitrée avec accès complexe et contraintes de temps',
+          solution: 'Organisation optimisée et équipement spécialisé pour vitres en hauteur',
+          beforeAfter: {
+            title: 'Baies Vitrées de Bureaux',
+            description: 'Nettoyage intégral des surfaces vitrées avec élimination des traces',
+            beforeImage: '/images/realisations/tourcoing/bureaux-before.jpg',
+            afterImage: '/images/realisations/tourcoing/bureaux-after.jpg',
+            alt: 'Nettoyage baies vitrées Tourcoing'
+          }
+        },
+        {
+          type: 'Restaurant',
+          quartier: 'Gambetta',
+          description: 'Nettoyage des baies vitrées et de la verrière d\'un restaurant. Traitement spécifique contre les dépôts de graisse sur les vitres.',
+          defi: 'Vitres avec graisse incrustée et traces tenaces',
+          solution: 'Produits dégraissants professionnels et technique spéciale pour vitres grasses',
+          beforeAfter: {
+            title: 'Verrière Restaurant',
+            description: 'Élimination des dépôts de graisse et restauration de la transparence des vitres',
+            beforeImage: '/images/realisations/tourcoing/restaurant-before.jpg',
+            afterImage: '/images/realisations/tourcoing/restaurant-after.jpg',
+            alt: 'Nettoyage vitres restaurant Tourcoing'
+          }
+        }
+      ],
+      specificites: [
+        "Grandes baies vitrées de bureaux",
+        "Vitrines commerciales avec contraintes spécifiques",
+        "Verrières et fenêtres panoramiques"
+      ]
+    }
+  ];
+
+  return villes.map(({ ville, title, description, realisations, specificites }) => {
+    return {
+      params: { ville },
+      props: { ville, title, description, realisations, specificites }
+    };
+  });
+}
+
+const { ville, title, description, realisations, specificites } = Astro.props;
+const capitalizedVille = ville.charAt(0).toUpperCase() + ville.slice(1);
+---
+
+<Layout title={`${title} | Vitres Wattrelos`} description={description}>
+  <div class="bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl font-bold text-gray-900 mb-4">Nos Réalisations à {capitalizedVille}</h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Découvrez nos travaux de nettoyage de vitres professionnels et les transformations spectaculaires que nous réalisons
+        </p>
+      </div>
+
+      <div class="space-y-24">
+        {realisations.map((realisation, index) => (
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent rounded-3xl -m-8"></div>
+            <div class="relative grid lg:grid-cols-2 gap-12 items-center">
+              <div class="space-y-8">
+                <div>
+                  <div class="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm mb-4">
+                    {realisation.type} • Quartier {realisation.quartier}
+                  </div>
+                  <h2 class="text-3xl font-bold text-gray-900 mb-4">{realisation.beforeAfter.title}</h2>
+                  <p class="text-lg text-gray-600">{realisation.description}</p>
+                </div>
+
+                <div class="grid gap-6">
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                      <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                      </svg>
+                      Le défi
+                    </h3>
+                    <p class="text-gray-600">{realisation.defi}</p>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                      <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      Notre solution
+                    </h3>
+                    <p class="text-gray-600">{realisation.solution}</p>
+                  </div>
+                </div>
+              </div>
+              <BeforeAfter {...realisation.beforeAfter} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-24 bg-white rounded-2xl shadow-xl p-8 lg:p-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">Notre Expertise à {capitalizedVille}</h2>
+        
+        <div class="prose max-w-none text-gray-600">
+          <p class="text-lg mb-8">
+            Notre connaissance approfondie des vitres à {capitalizedVille} et de leurs spécificités nous permet d'adapter nos interventions aux particularités locales :
+          </p>
+          
+          <div class="grid md:grid-cols-3 gap-8">
+            {specificites.map((spec) => (
+              <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                <div class="flex items-start">
+                  <svg class="h-6 w-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p class="text-gray-800 font-medium">{spec}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16">
+        <CTASection 
+          title={`Besoin d'un Nettoyage de Vitres à ${capitalizedVille} ?`}
+          description="Contactez-nous pour un devis gratuit et personnalisé"
+        />
+      </div>
+    </div>
+  </div>
+</Layout>

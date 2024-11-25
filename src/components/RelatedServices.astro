@@ -1,0 +1,49 @@
+---
+interface Props {
+  currentService?: string;
+}
+
+const { currentService } = Astro.props;
+
+const services = [
+  {
+    title: 'Particuliers',
+    description: 'Service sur mesure pour maisons et appartements',
+    href: '/services/particuliers',
+    id: 'particuliers'
+  },
+  {
+    title: 'Professionnels',
+    description: 'Solutions adaptées aux entreprises et commerces',
+    href: '/services/professionnels',
+    id: 'professionnels'
+  },
+  {
+    title: 'Copropriétés',
+    description: 'Entretien des parties communes et immeubles',
+    href: '/services/coproprietes',
+    id: 'coproprietes'
+  }
+].filter(service => service.id !== currentService);
+---
+
+<div class="bg-gray-50 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center mb-8">Découvrez nos autres services</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      {services.map(service => (
+        <a href={service.href} class="block group">
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+              {service.title}
+            </h3>
+            <p class="text-gray-600">{service.description}</p>
+            <div class="mt-4 text-primary font-medium group-hover:translate-x-2 transition-transform">
+              En savoir plus →
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Particuliers',
+    description: 'Service complet de nettoyage de vitres pour votre maison ou appartement. Intervention professionnelle et soignée.',
+    icon: '🏠',
+    link: '/services/particuliers',
+    features: [
+      'Nettoyage de vitres intérieur/extérieur',
+      'Nettoyage des encadrements',
+      'Nettoyage des volets et persiennes',
+      'Intervention sur rendez-vous'
+    ]
+  },
+  {
+    title: 'Professionnels',
+    description: 'Solutions adaptées aux commerces, bureaux et locaux professionnels. Service régulier ou ponctuel selon vos besoins.',
+    icon: '🏢',
+    link: '/services/professionnels',
+    features: [
+      'Contrats personnalisés',
+      'Intervention hors ouverture',
+      'Équipement professionnel adapté',
+      'Devis gratuit'
+    ]
+  },
+  {
+    title: 'Copropriétés',
+    description: 'Entretien des parties communes et des surfaces vitrées pour les immeubles et résidences.',
+    icon: '🏘️',
+    link: '/services/coproprietes',
+    features: [
+      'Nettoyage des parties communes',
+      'Intervention régulière planifiée',
+      'Tarifs préférentiels',
+      'Assurance professionnelle'
+    ]
+  }
+];
+---
+
+<Layout 
+  title="Nos Services de Lavage de Vitres | Vitres Wattrelos"
+  description="Découvrez nos services professionnels de lavage de vitres à Wattrelos. Solutions adaptées pour particuliers, professionnels et copropriétés."
+>
+  <div class="bg-gray-50 py-12 sm:py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+          Nos Services
+        </h1>
+        <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+          Des solutions professionnelles adaptées à tous vos besoins en lavage de vitres
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => <ServiceCard {...service} />)}
+      </div>
+    </div>
+  </div>
+</Layout>

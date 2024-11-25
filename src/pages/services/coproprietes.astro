@@ -1,0 +1,135 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const features = [
+  {
+    title: 'Gestion simplifiée',
+    description: 'Un interlocuteur unique pour tous vos besoins d\'entretien',
+    icon: '📋'
+  },
+  {
+    title: 'Tarifs adaptés',
+    description: 'Solutions économiques pour les copropriétés',
+    icon: '💰'
+  },
+  {
+    title: 'Intervention planifiée',
+    description: 'Planning régulier selon vos besoins',
+    icon: '🗓️'
+  }
+];
+---
+
+<Layout
+  title="Nettoyage de Vitres pour Copropriétés à Wattrelos | Vitres Wattrelos"
+  description="Service professionnel de lavage de vitres pour copropriétés et immeubles à Wattrelos. Entretien régulier des parties communes, tarifs préférentiels. Expert en nettoyage de vitres pour copropriétés."
+>
+  <div class="bg-gray-50 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900">Service de Nettoyage de Vitres pour Copropriétés à Wattrelos</h1>
+        <p class="mt-4 text-xl text-gray-600">Solutions complètes pour l'entretien de vos parties communes</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        {features.map(({ title, description, icon }) => (
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="text-3xl mb-4">{icon}</div>
+            <h3 class="text-xl font-semibold mb-2">{title}</h3>
+            <p class="text-gray-600">{description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="bg-white p-8 rounded-lg shadow-md mb-12">
+        <h2 class="text-2xl font-bold mb-6">Notre Expertise en Nettoyage de Vitres pour Copropriétés</h2>
+        
+        <div class="prose max-w-none text-gray-600">
+          <p class="mb-4">
+            À Wattrelos et dans toute la métropole lilloise, notre entreprise propose des services spécialisés de nettoyage de vitres pour les copropriétés. Nous comprenons les enjeux spécifiques liés à l'entretien des immeubles résidentiels et proposons des solutions adaptées aux besoins des syndics et des conseils syndicaux.
+          </p>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Services Complets pour Parties Communes</h3>
+          <p class="mb-4">
+            Notre offre pour les copropriétés comprend :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Nettoyage des vitres des halls d'entrée</li>
+            <li>Entretien des baies vitrées des coursives</li>
+            <li>Nettoyage des fenêtres des cages d'escalier</li>
+            <li>Entretien des portes vitrées</li>
+            <li>Nettoyage des miroirs d'ascenseurs</li>
+            <li>Traitement des surfaces vitrées spéciales</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Gestion Professionnelle des Interventions</h3>
+          <p class="mb-4">
+            Notre approche professionnelle garantit :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Planning d'intervention régulier et adapté</li>
+            <li>Coordination avec le syndic et le conseil syndical</li>
+            <li>Respect des règlements de copropriété</li>
+            <li>Intervention discrète et efficace</li>
+            <li>Reporting détaillé des prestations</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Équipements et Sécurité</h3>
+          <p class="mb-4">
+            Nous utilisons :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Matériel professionnel adapté aux grandes hauteurs</li>
+            <li>Équipements de sécurité conformes aux normes</li>
+            <li>Produits respectueux de l'environnement</li>
+            <li>Personnel formé et habilité</li>
+            <li>Assurance responsabilité civile professionnelle</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Avantages pour les Copropriétés</h3>
+          <p class="mb-4">
+            En choisissant notre service, vous bénéficiez de :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Tarifs préférentiels pour contrats annuels</li>
+            <li>Intervention rapide en cas de besoin</li>
+            <li>Devis détaillé et transparent</li>
+            <li>Facturation claire et simplifiée</li>
+            <li>Service client dédié</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Types de Copropriétés</h3>
+          <p class="mb-4">
+            Nous intervenons dans tous types de résidences :
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Immeubles résidentiels</li>
+            <li>Résidences de standing</li>
+            <li>Petites copropriétés</li>
+            <li>Résidences sécurisées</li>
+            <li>Ensembles immobiliers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 p-8 rounded-lg shadow-md text-center">
+        <h2 class="text-2xl font-bold mb-4">Besoin d'un Devis pour Votre Copropriété ?</h2>
+        <p class="text-gray-600 mb-6">Contactez-nous pour une offre personnalisée adaptée à votre immeuble</p>
+        <div class="flex justify-center gap-4">
+          <a
+            href="/contact"
+            class="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+          >
+            Demander un devis gratuit
+          </a>
+          <a
+            href="tel:+33320000000"
+            class="inline-block bg-white text-primary font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            Nous appeler
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,59 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  sizes?: string;
+  widths?: number[];
+  formats?: string[];
+  class?: string;
+  loading?: "lazy" | "eager";
+  fetchpriority?: "high" | "low" | "auto";
+}
+
+const {
+  src,
+  alt,
+  sizes = "100vw",
+  widths = [640, 768, 1024, 1280, 1536],
+  formats = ["webp", "jpg"],
+  class: className,
+  loading = "lazy",
+  fetchpriority = "auto"
+} = Astro.props;
+
+import { getImage } from "astro:assets";
+
+const generateSrcset = async () => {
+  const srcSet = [];
+  
+  for (const format of formats) {
+    for (const width of widths) {
+      const image = await getImage({ src, width, format });
+      srcSet.push(`${image.src} ${width}w`);
+    }
+  }
+  
+  return srcSet.join(", ");
+};
+
+const srcset = await generateSrcset();
+const defaultImage = await getImage({ src, format: formats[0], width: widths[0] });
+---
+
+<picture>
+  {formats.map(async (format) => (
+    <source
+      type={`image/${format}`}
+      srcset={await generateSrcset()}
+      sizes={sizes}
+    />
+  ))}
+  <img
+    src={defaultImage.src}
+    alt={alt}
+    class={className}
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding="async"
+  />
+</picture>

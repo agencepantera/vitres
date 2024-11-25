@@ -1,0 +1,51 @@
+---
+---
+<script>
+  // Fonction pour charger les images de manière optimisée
+  function loadOptimizedImage(img: HTMLImageElement) {
+    if ('loading' in HTMLImageElement.prototype) {
+      img.loading = 'lazy';
+    }
+    
+    // Ajouter des tailles d'images responsives
+    if (!img.srcset && img.dataset.srcset) {
+      img.srcset = img.dataset.srcset;
+    }
+    
+    // Ajouter des dimensions explicites
+    if (img.dataset.width && img.dataset.height) {
+      img.width = parseInt(img.dataset.width);
+      img.height = parseInt(img.dataset.height);
+    }
+  }
+
+  // Observer pour le lazy loading
+  const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target as HTMLImageElement;
+        loadOptimizedImage(img);
+        imageObserver.unobserve(img);
+      }
+    });
+  });
+
+  // Observer toutes les images avec data-optimize
+  document.querySelectorAll('img[data-optimize]').forEach((img) => {
+    imageObserver.observe(img);
+  });
+</script>
+
+<style>
+  img[data-optimize] {
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  img[data-optimize]:not([src]) {
+    opacity: 0;
+  }
+  
+  img[data-optimize][src] {
+    opacity: 1;
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Besoin d'un Service Professionnel de Nettoyage de Vitres ?",
+  description = "Contactez-nous pour un devis personnalisé adapté à vos besoins"
+} = Astro.props;
+---
+
+<div class="bg-primary/10 p-8 rounded-lg shadow-md text-center">
+  <h2 class="text-2xl font-bold mb-4">{title}</h2>
+  <p class="text-gray-600 mb-6">{description}</p>
+  <div class="flex justify-center gap-4">
+    <a
+      href="/contact"
+      class="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+    >
+      Demander un devis gratuit
+    </a>
+    <a
+      href="tel:+33320000000"
+      class="inline-block bg-white text-primary font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors"
+    >
+      Nous appeler
+    </a>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+---
+import { SEO } from 'astro-seo';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image = '/images/default-og.jpg' } = Astro.props;
+
+// Mise à jour des couleurs pour un meilleur contraste
+const colors = {
+  primary: '#0052CC', // Bleu plus foncé pour un meilleur contraste
+  secondary: '#0747A6',
+  textDark: '#172B4D',
+  textLight: '#FFFFFF'
+};
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          type: 'website',
+          image,
+        },
+        image: {
+          alt: 'Lavage de vitres professionnel à Wattrelos',
+          width: 1200,
+          height: 630,
+        },
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        site: '@vitreswattrelos',
+        title,
+        description,
+        image,
+        imageAlt: 'Lavage de vitres professionnel à Wattrelos',
+      }}
+    />
+  </head>
+  <body class="min-h-screen flex flex-col bg-white">
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --primary: #0052CC;
+    --secondary: #0747A6;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+</style>
